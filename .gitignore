@@ -5,4 +5,5 @@ node_modules
 /package
 
 .vercel
+.vercel_build_output
 .env
