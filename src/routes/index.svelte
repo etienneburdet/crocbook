@@ -1,9 +1,9 @@
 <script type="text/javascript" lang="typescript">
 	const fetchAirtable = async () => {
-		const res = await fetch('/airtable');
-		const json = await res.json();
-		console.log(json);
-	};
+		const res = await fetch('/airtable')
+		const json = await res.json()
+		console.log(json)
+	}
 </script>
 
 <h1>Welcome to SvelteKit</h1>
