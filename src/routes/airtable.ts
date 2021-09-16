@@ -8,15 +8,16 @@ const request: Request = new Request(
   }
 )
 
-console.log('salut');
-
-export async function get({ params }) {
+/**
+ * @type {import('@sveltejs/kit').RequestHandler}
+ */
+export async function get ({ params }) {
   const res = await fetch(request)
-  const json = await res.json();
+  const json = await res.json()
 
   return {
     body: {
-      json,
-    },
-  };
+      json
+    }
+  }
 }
