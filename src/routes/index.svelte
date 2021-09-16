@@ -17,7 +17,7 @@ export async function load({ page, fetch, session, context }) {
 }
 </script>
 
-<script>
+<script lang="typescript">
 	export let families
 </script>
 
@@ -30,11 +30,14 @@ export async function load({ page, fetch, session, context }) {
 	<h2>{family.fields["Name"]}</h2>
 		{JSON.stringify(family.fields)}
 		<ul>
-			<li>Parents : {typeof family.fields["Parents"]}
-				{#each [...family.fields["Parents"]] as parent, index (parent)}
-					{parent.id}
-				{/each}
-			</li>
+				Parents :
+				{#if family.fields.Parents}
+					{#each family.fields.Parents as parent, index (parent)}
+						<li>
+							<a href="/people/{parent}">{family.fields["Name (from Parents)"][index]}</a>
+						</li>
+					{/each}
+				{/if}
 			<li>{family.fields["Name (from enfants)"]}</li>
 		</ul>
 	{/each}
