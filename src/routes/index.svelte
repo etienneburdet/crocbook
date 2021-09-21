@@ -1,46 +1,59 @@
-<script context="module" lang="typescript">
-	/**
- * @type {import'@sveltejs/kit').Load}
- */
-export async function load({ page, fetch, session, context }) {
-	const res = await fetch('/airtable')
-	const json = await res.json()
-	const { records: families } = json.json
+<script context="module" lang="ts">
+  import type { LoadOutput } from '@sveltejs/kit'
 
-	if (res.ok) {
-		return {
-			props: {
-				families
-			}
-		}
-	}
-}
+  /**
+   * @type {import'@sveltejs/kit').Load}
+   */
+  export async function load ({
+    page,
+    fetch,
+    session,
+    context
+  }): Promise<LoadOutput> {
+    const res = await fetch('/airtable')
+    const json = await res.json()
+    const { records: families } = json.json
+
+    if (res.ok) {
+      return {
+        props: {
+          families
+        }
+      }
+    }
+  }
+
+console.log('hello')
 </script>
 
-<script lang="typescript">
-	export let families
+<script lang="ts">
+  export let families
 </script>
 
 <h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<p>
+  Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
+</p>
 {#await families}
-	Loading records
+  Loading records
 {:then}
-	{#each families as family (family.id)}
-	<h2>{family.fields["Name"]}</h2>
-		{JSON.stringify(family.fields)}
-		<ul>
-				Parents :
-				{#if family.fields.Parents}
-					{#each family.fields.Parents as parent, index (parent)}
-						<li>
-							<a href="/people/{parent}">{family.fields["Name (from Parents)"][index]}</a>
-						</li>
-					{/each}
-				{/if}
-			<li>{family.fields["Name (from enfants)"]}</li>
-		</ul>
-	{/each}
+  {#each families as family (family.id)}
+    <h2>{family.fields.Name}</h2>
+    {JSON.stringify(family.fields)}
+    <ul>
+      Parents :
+      {#if family.fields.Parents}
+        {#each family.fields.Parents as parent, index (parent)}
+          <li>
+            <a href="/people/{parent}"
+              >{family.fields['Name (from Parents)'][index]}</a
+            >
+          </li>
+        {/each}
+      {/if}
+      <li>{family.fields['Name (from enfants)']}</li>
+    </ul>
+  {/each}
 {:catch}
- No records
+  No records
 {/await}
