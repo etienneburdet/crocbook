@@ -1,7 +1,6 @@
 {
   "name": "crocbook",
   "version": "0.0.1",
-  "licence": "MIT",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",

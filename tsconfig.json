@@ -5,6 +5,7 @@
     "lib": ["es2020", "DOM"],
     "target": "es2019",
     "importsNotUsedAsValues": "error",
+    "strictNullChecks": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
     "sourceMap": true,

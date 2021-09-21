@@ -12,7 +12,7 @@ const request = new Request(
 /**
  * @type {import('@sveltejs/kit').RequestHandler}
  */
-export default async function get (): Promise<DefaultBody> {
+export async function get ({ params }): Promise<DefaultBody> {
   const res = await fetch(request)
   const json = await res.json()
 

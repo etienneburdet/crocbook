@@ -1,33 +1,27 @@
 <script context="module" lang="ts">
-  import type { LoadOutput } from '@sveltejs/kit'
+import type { LoadInput, LoadOutput } from '@sveltejs/kit'
 
-  /**
+
+/**
    * @type {import'@sveltejs/kit').Load}
    */
-  export async function load ({
-    page,
-    fetch,
-    session,
-    context
-  }): Promise<LoadOutput> {
-    const res = await fetch('/airtable')
-    const json = await res.json()
-    const { records: families } = json.json
+// export async function load ({ page, fetch, session, context }): Promise<LoadOutput> {
+//   const res = await fetch('/airtable')
+//   const json = await res.json()
+//   const { json: families } = json
 
-    if (res.ok) {
-      return {
-        props: {
-          families
-        }
-      }
-    }
-  }
-
-console.log('hello')
+//   if (res.ok) {
+//     return {
+//       props: {
+//         families
+//       }
+//     }
+//   }
+// }
 </script>
 
 <script lang="ts">
-  export let families
+  export let families = []
 </script>
 
 <h1>Welcome to SvelteKit</h1>

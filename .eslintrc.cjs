@@ -11,10 +11,8 @@ module.exports = {
     "svelte3/typescript": () => require("typescript"),
   },
   parserOptions: {
-    sourceType: "module",
-    ecmaVersion: 2019,
     project: "./tsconfig.json",
-    extraFileExtensions: [".svelte"]
+    extraFileExtensions: [".svelte"],
   },
   env: {
     browser: true,
@@ -22,6 +20,6 @@ module.exports = {
     node: true,
   },
   rules: {
-    "no-multiple-empty-lines": ['error', { max: 2, maxBOF: 2, maxEOF: 0 }] //Bug with Svelte
-  }
+    "no-multiple-empty-lines": ["error", { max: 2, maxBOF: 2, maxEOF: 0 }], //Bug with Svelte
+  },
 };
