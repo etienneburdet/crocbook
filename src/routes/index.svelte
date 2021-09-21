@@ -7,6 +7,7 @@ import type { LoadOutput } from '@sveltejs/kit'
    */
 export async function load ({ page, fetch, session, context }) {
   const res = await fetch('/airtable/familles')
+
   const { records: families } = await res.json()
 
   if (res.ok) {

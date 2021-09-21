@@ -28,7 +28,8 @@ export async function load ({ page, fetch, session, context }: LoadInput) {
   Loading records
 {:then}
   <h2>{membre.nom}</h2>
-  {membre}
+  {JSON.stringify(membre.Photo)}
+  <img src={membre.Photo[0].url} alt="">
 {:catch}
   No records
 {/await}
