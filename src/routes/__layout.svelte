@@ -19,6 +19,8 @@
 <script lang="ts">
   import { session } from '$app/stores'
   import { onMount } from 'svelte'
+  import Login from '$lib/components/Login.svelte'
+
   export let isLoggedIn: boolean
 
   onMount(() => {
@@ -31,7 +33,7 @@
 {#if isLoggedIn}
   <slot />
 {:else}
-  <button on:click={login}>Login</button>
+  <Login />
 {/if}
 
 <style>
