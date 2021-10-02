@@ -26,9 +26,10 @@ export async function load ({ page, fetch, session, context }): Promise<{ props:
       }
     }
 }
+
 </script>
 
-<script lang="ts">
+<script lang="ts"
   export let families: Families
 </script>
 
