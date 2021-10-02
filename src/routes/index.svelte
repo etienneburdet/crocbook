@@ -26,10 +26,9 @@ export async function load ({ page, fetch, session, context }): Promise<{ props:
       }
     }
 }
-
 </script>
-
-<script lang="ts"
+// eslint-disable-next-line no-multiple-empty-lines
+<script lang="ts">
   export let families: Families
 </script>
 
