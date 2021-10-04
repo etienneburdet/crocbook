@@ -1,13 +1,27 @@
 <script lang="ts">
-	/* global netlifyIdentity */
+	import { auth } from '$lib/stores'
 	import { onMount } from 'svelte'
+	import { session } from '$app/stores'
+
+	const closeModalAndSetLogin = () => {
+	  $auth.close()
+	  $session.isLoggedIn = true
+	}
+
+	onMount(async () => {
+	  const netlifyIdentity = await import('netlify-identity-widget')
+	  $auth = netlifyIdentity
+
+	  $auth.init({
+	    container: '#login-menu',
+	    local: 'fr'
+	  })
+
+	  $auth.on('login', closeModalAndSetLogin)
+	})
 </script>
 
-<svelte:head>
-	<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-</svelte:head>
-
-<button on:click={() => netlifyIdentity.open('login')}>Login</button>
+<div id="login-menu"></div>
 
 <style>
     /* your styles go here */

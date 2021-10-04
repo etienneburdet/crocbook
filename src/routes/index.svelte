@@ -10,8 +10,9 @@
     }
   }
   type Families = Family[]
-/**
-   * @type {import'@sveltejs/kit').Load}
+
+  /**
+   * @type {import('@sveltejs/kit').Load}
    */
 export async function load ({ page, fetch, session, context }): Promise<{ props: { families: Families } }|undefined> {
     const res = await fetch('/airtable/familles')
