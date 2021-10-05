@@ -36,8 +36,10 @@
   },
   "type": "module",
   "dependencies": {
+    "@netlify/functions": "^0.7.2",
     "@types/netlify-identity-widget": "^1.9.2",
     "gotrue-js": "^0.9.29",
+    "netlify-cli": "^6.9.30",
     "netlify-identity-widget": "^1.9.2"
   }
 }

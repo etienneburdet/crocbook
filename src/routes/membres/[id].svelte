@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-  import type { LoadInput } from "@sveltejs/kit"
+  import type { LoadInput } from '@sveltejs/kit'
   type Membre = {
     nom: string
     email?: string
@@ -10,11 +10,11 @@
   /**
    * @type {import'@sveltejs/kit').Load}
    */
-  export async function load({
+  export async function load ({
     page,
     fetch,
     session,
-    context,
+    context
   }: LoadInput): Promise<{ props: { membre: Membre } } | undefined> {
     const { id } = page.params
     const res = await fetch(`/airtable/membres/${id}`)
@@ -23,8 +23,8 @@
     if (res.ok) {
       return {
         props: {
-          membre,
-        },
+          membre
+        }
       }
     }
   }

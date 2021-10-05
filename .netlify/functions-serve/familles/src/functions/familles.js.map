@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["../../home/etienne/code/etienneburdet/crocbook/functions/familles.js"],
+  "sourceRoot": "/tmp/tmp-14621-HmzAHbDnwAIE",
+  "sourcesContent": ["const handler = async (event, context) => {\n  return {\n    statusCode: 200,\n    body: JSON.stringify({ message: 'Hello World LOL!' })\n  }\n}\n\nexport { handler }\n\n\n// const headers = new Headers({ Authorization: `Bearer ${process.env.AIRTABLE_API}` })\n// const request = new Request(\n//   'https://api.airtable.com/v0/appGca1zvRwNN4TnZ/Familles',\n//   {\n//     headers\n//   }\n// )\n\n// /**\n//  * @type {import('@sveltejs/kit').RequestHandler}\n//  */\n// export async function get ({ params }): Promise<DefaultBody> {\n//   const res = await fetch(request)\n//   const json = await res.json()\n\n//   return {\n//     body: json\n//   }\n// }\n"],
+  "mappings": ";;;;;;;;;AAAA;AAAA;AAAA;AAAA,IAAM,UAAU,OAAO,OAAO,YAAY;AACxC,SAAO;AAAA,IACL,YAAY;AAAA,IACZ,MAAM,KAAK,UAAU,EAAE,SAAS;AAAA;AAAA;",
+  "names": []
+}
